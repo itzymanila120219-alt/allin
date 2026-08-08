@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#ff3d46" />
+  <title>ALL IN MIDZY | Memory Match</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="game-header">
+      <div class="brand-lockup" aria-label="ALL IN, MIDZY Memory Match">
+        <img class="brand-logo" src="assets/all-in-logo.png" alt="ALL IN, MIDZY" />
+        <h1>Memory Match</h1>
+      </div>
+
+      <div class="header-actions">
+        <button class="primary-button" id="restartButton" type="button">
+         <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#FFFFFF"><path d="M339.5-108.5q-65.5-28.5-114-77t-77-114Q120-365 120-440h80q0 117 81.5 198.5T480-160q117 0 198.5-81.5T760-440q0-117-81.5-198.5T480-720h-6l62 62-56 58-160-160 160-160 56 58-62 62h6q75 0 140.5 28.5t114 77q48.5 48.5 77 114T840-440q0 75-28.5 140.5t-77 114q-48.5 48.5-114 77T480-80q-75 0-140.5-28.5Z"/></svg>
+          New game
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="score-panel" aria-label="Game statistics">
+        <div class="stat">
+          <span class="stat-label">Pairs</span>
+          <strong><span id="pairsValue">0</span><span class="stat-muted"> / 10</span></strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Moves</span>
+          <strong id="movesValue">0</strong>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Time</span>
+          <strong id="timeValue">00:00</strong>
+        </div>
+        <div class="stat best-stat">
+          <span class="stat-label">Best</span>
+          <strong id="bestValue">--</strong>
+        </div>
+      </section>
+
+      <section class="game-area" aria-labelledby="gameInstruction">
+        <p class="instruction" id="gameInstruction">
+          Flip two cards. Match every identical portrait to clear the deck.
+        </p>
+        <div class="game-board" id="gameBoard" aria-live="polite"></div>
+      </section>
+    </main>
+  </div>
+
+  <div class="match-spotlight" id="matchSpotlight" role="status" aria-live="assertive" hidden>
+    <div class="match-spotlight-backdrop"></div>
+    <div class="match-spotlight-content">
+      <div class="spotlight-card-wrap">
+        <img id="spotlightImage" src="" alt="" />
+      </div>
+      <p class="spotlight-name" id="spotlightName"></p>
+      <p class="spotlight-streak" id="spotlightStreak" hidden></p>
+    </div>
+  </div>
+
+  <div class="modal" id="winModal" role="dialog" aria-modal="true" aria-labelledby="winTitle" hidden>
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-card" id="winCard">
+      <img class="modal-logo" src="assets/all-in-logo.png" alt="ALL IN, MIDZY" />
+      <p class="modal-kicker" id="modalKicker">DECK CLEARED</p>
+      <h2 id="winTitle">You went all in.</h2>
+      <p id="winSummary">10 pairs matched.</p>
+      <div class="result-grid">
+        <div><span>Time</span><strong id="finalTime">00:00</strong></div>
+        <div><span>Moves</span><strong id="finalMoves">0</strong></div>
+        <div><span>Accuracy</span><strong id="finalAccuracy">100%</strong></div>
+      </div>
+      <div class="modal-actions">
+        <button class="secondary-button" type="button" data-close-modal>View board</button>
+        <button class="primary-button" id="playAgainButton" type="button">Play again</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+
+  <noscript>This game needs JavaScript enabled.</noscript>
+  <script src="script.js"></script>
+</body>
+</html>
